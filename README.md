@@ -48,3 +48,14 @@ git add index.yaml
 git commit -m "Update index.yaml"
 git push
 ```
+
+## Build docker images
+
+### Coda Testnet 3.2b
+
+```bash
+cd docker/3.2b-testnet
+docker build . -t coda:3.2b-testnet
+docker tag coda.3.2b-testnet $REGISTRY/coda:3.2b-testnet
+docker push $REGISTRY/coda:3.2b-testnet
+```
