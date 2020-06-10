@@ -1,6 +1,6 @@
 # Coda Helm Charts
 
-This is an unofficial registry of [Coda](https://coda.org/) [helm](https://helm.sh/) charts.
+This is an unofficial registry of [Coda](https://codaprotocol.com/) [helm](https://helm.sh/) charts.
 
 ## Prerequisites
 * [Helm](https://helm.sh/) 3+
