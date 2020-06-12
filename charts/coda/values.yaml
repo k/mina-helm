@@ -16,7 +16,7 @@ fullnameOverride: ""
 
 # Set your external ip in this command
 bashCommand: |
-  coda daemon -external-ip 157.245.86.42 -peer $SEED1 -peer $SEED2  -run-snark-worker $PUBKEY -snark-worker-fee 0.25 -block-producer-pubkey $PUBKEY -block-producer-password $PASSWORD
+  coda daemon -peer $SEED1 -peer $SEED2  -run-snark-worker $PUBKEY -snark-worker-fee 0.000000001 -block-producer-pubkey $PUBKEY -block-producer-password $PASSWORD
 
 # kubectl create secret generic key-password --from-literal=PASSWORD=<PASSWORD_HERE>
 # kubectl  create secret generic seed --from-literal=SEED1=<SEED1_HERE> --from-literal=SEED2=<SEED2_HERE>

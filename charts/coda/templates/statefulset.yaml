@@ -50,6 +50,14 @@ spec:
             - name: graphql
               containerPort: 3085
               protocol: TCP
+            - name: http
+              hostPort: 80
+              containerPort: 80
+              protocol: TCP
+            - name: https
+              hostPort: 443
+              containerPort: 443
+              protocol: TCP
           env:
           {{- toYaml .Values.env | nindent 10 }}
           # livenessProbe:
