@@ -13,6 +13,15 @@ entries:
   coda:
   - apiVersion: v2
     appVersion: 3.2b
+    created: "2020-06-13T12:01:19.338289-04:00"
+    description: A Helm chart for Kubernetes
+    digest: 307a62a2caf6210ac24679105c21afabdb8e926779f7d80bca82c2a2e2baeaa9
+    name: coda
+    urls:
+    - https://github.com/k/coda-helm/releases/download/coda-0.3.0/coda-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 3.2b
     created: "2020-06-12T11:27:22.869739-04:00"
     description: A Helm chart for Kubernetes
     digest: d5f19fb93d80ea2177b096b661ff861e54c79d6110492ddf86b1f58fd1ea8377
