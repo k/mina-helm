@@ -69,10 +69,13 @@ spec:
           #     path: /
           #     port: http
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+          {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
           - name: chaindata
             mountPath: /root/.coda-config
+          {{- toYaml .Values.volumeMounts | nindent 10 }}
+      volumes:
+      {{- toYaml .Values.volumes | nindent 6 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

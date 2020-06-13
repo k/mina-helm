@@ -16,7 +16,7 @@ fullnameOverride: ""
 
 # Set your external ip in this command
 bashCommand: |
-  coda daemon -peer $SEED1 -peer $SEED2  -run-snark-worker $PUBKEY -snark-worker-fee 0.000000001 -block-producer-pubkey $PUBKEY -block-producer-password $PASSWORD
+  cp /keys/privkey /root/privkey && chmod 400 /root/privkey && ls -l /root/privkey && coda daemon -peer $SEED1 -peer $SEED2  -run-snark-worker $PUBKEY -snark-worker-fee 0.000000001 -block-producer-key /root/privkey -block-producer-password $PASSWORD
 
 # kubectl create secret generic key-password --from-literal=PASSWORD=<PASSWORD_HERE>
 # kubectl  create secret generic seed --from-literal=SEED1=<SEED1_HERE> --from-literal=SEED2=<SEED2_HERE>
@@ -38,7 +38,15 @@ env:
     secretKeyRef:
       name: key-password
       key: PASSWORD
-  
+
+volumeMounts:
+- name: privkey
+  mountPath: /keys
+
+volumes:
+- name: privkey
+  secret:
+    secretName: privkey
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -85,11 +93,11 @@ resources:
     cpu: 8
     memory: 16Gi
   requests:
-    cpu: 6
-    memory: 8Gi
+    cpu: 7
+    memory: 12Gi
 
-nodeSelector: {}
-  # kryptonetes.com/project: coda
+nodeSelector:
+  kryptonetes.com/project: coda
 
 tolerations:
 - key: coda
