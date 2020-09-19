@@ -8,7 +8,7 @@ image:
   repository: kbambridge/coda
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart version.
-  tag: "3.2b-testnet"
+  tag: "3.3-testnet"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -16,23 +16,18 @@ fullnameOverride: ""
 
 # Set your external ip in this command
 bashCommand: |
-  cp /keys/privkey /root/privkey && chmod 400 /root/privkey && ls -l /root/privkey && coda daemon -peer $SEED1 -peer $SEED2  -run-snark-worker $PUBKEY -snark-worker-fee 0.000000001 -block-producer-key /root/privkey -block-producer-password $PASSWORD
+  cp /keys/privkey /root/privkey && chmod 400 /root/privkey && ls -l /root/privkey && coda daemon -peer $SEED1 -run-snark-worker $PUBKEY -snark-worker-fee 0.000000001 -block-producer-key /root/privkey -block-producer-password $PASSWORD
 
 # kubectl create secret generic key-password --from-literal=PASSWORD=<PASSWORD_HERE>
 # kubectl  create secret generic seed --from-literal=SEED1=<SEED1_HERE> --from-literal=SEED2=<SEED2_HERE>
 env:
 - name: PUBKEY
-  value: 4vsRCVbWUyT9Zuh2U3YZtAYq1V6xwWWhBfuDU9ymJFJsCddQSsAzHoexMmqsecrRLiVoafy5aA1wS8DCRYh2yd97wfe9jZV5HnYt4tCADk9Qq4yAr7Fxu6UcqDFyaq8Q28unt9FrrntVL2wy
+  value: B62qjY7MxLhCSbgUJUg9K97dxjRBgFJZBdfpxgBrqQSWuFKZdBjhyMD
 - name: SEED1
   valueFrom:
     secretKeyRef:
       name: seed
       key: SEED1
-- name: SEED2
-  valueFrom:
-    secretKeyRef:
-      name: seed
-      key: SEED2
 - name: PASSWORD
   valueFrom:
     secretKeyRef:
