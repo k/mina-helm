@@ -1,15 +1,15 @@
-# Coda Helm Charts
+# Mina Helm Charts
 
-This is an unofficial registry of [Coda](https://codaprotocol.com/) [helm](https://helm.sh/) charts.
+This is an unofficial registry of [Mina](https://minaprotocol.com/) [helm](https://helm.sh/) charts.
 
 ## Prerequisites
 * [Helm](https://helm.sh/) 3+
 
 ## Setup
 
-Add the coda helm repo:
+Add the mina helm repo:
 ```
-helm repo add coda https://k.github.io/coda-helm
+helm repo add mina https://k.github.io/mina-helm
 helm repo update
 ```
 
@@ -17,9 +17,9 @@ Then configure a values.yaml for the chart you want to install.
 
 ## List of Charts
 
-### [coda](./charts/coda)
+### [mina](./charts/mina)
 
-Chart to run a Coda Full Node
+Chart to run a Mina Full Node
 
 ## Deploy to Github Pages
 
@@ -49,13 +49,11 @@ git commit -m "Update index.yaml"
 git push
 ```
 
-## Build docker images
-
-### Coda Testnet 3.2b
+## Build docker images for a testnet
 
 ```bash
-cd docker/3.2b-testnet
-docker build . -t coda:3.2b-testnet
-docker tag coda.3.2b-testnet $REGISTRY/coda:3.2b-testnet
-docker push $REGISTRY/coda:3.2b-testnet
+cd docker/$TESTNET
+docker build . -t mina:$TESTNET
+docker tag mina:$TESTNET $REGISTRY/mina:$TESTNET
+docker push $REGISTRY/mina:$TESTNET
 ```
